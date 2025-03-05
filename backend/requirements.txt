@@ -1,0 +1,24 @@
+# Framework web
+flask==2.3.3
+flask-restful==0.3.10
+flask-cors==4.0.0
+
+# ORM e banco de dados
+flask-sqlalchemy==3.1.1
+flask-migrate==4.0.5
+psycopg2-binary==2.9.9
+
+# Autenticação
+flask-jwt-extended==4.5.3
+bcrypt==4.0.1
+
+# Ambiente e configuração
+python-dotenv==1.0.0
+environs==9.5.0
+
+# Validação de dados
+marshmallow==3.20.1
+
+# Utilitários
+pytest==7.4.3
+gunicorn==21.2.0
