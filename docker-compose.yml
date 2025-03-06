@@ -10,7 +10,7 @@ services:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - VUE_APP_API_URL=http://localhost:5000/api/v1
+      - VITE_API_URL=http://localhost:5000/api/v1
     depends_on:
       - backend
     networks:
@@ -29,8 +29,10 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/todoapp
       - SECRET_KEY=desenvolvimento_secret_key
       - JWT_SECRET_KEY=jwt_dev_key
+      - FLASK_APP=app:create_app
     depends_on:
       - db
+    command: ["python", "-m", "flask", "run", "--host=0.0.0.0"]
     networks:
       - app-network
 

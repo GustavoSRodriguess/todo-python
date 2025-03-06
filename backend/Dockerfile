@@ -5,7 +5,7 @@ WORKDIR /app
 # Definir variáveis de ambiente
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    FLASK_APP=app/__init__.py \
+    FLASK_APP=app:create_app \
     FLASK_ENV=development
 
 # Instalar dependências
