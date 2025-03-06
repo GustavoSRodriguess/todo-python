@@ -1,12 +1,12 @@
 <template>
-  <div class="app-container">
-    <header class="bg-primary text-black shadow-md">
+  <div class="app-container bg-gray-800">
+    <header class="bg-primary shadow-md">
       <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
-          <h1 class="text-2xl font-bold">Todo App</h1>
+          <h1 class="text-2xl text-yellow-500 font-bold">Todo App</h1>
           <div>
-            <router-link to="/" class="hover:text-white/80 mr-4">Home</router-link>
-            <router-link to="/about" class="hover:text-white/80">Sobre</router-link>
+            <router-link to="/" class="text-yellow-500 hover:text-yellow-600 mr-4">Home</router-link>
+            <router-link to="/about" class="text-yellow-500 hover:text-yellow-600">Sobre</router-link>
           </div>
         </div>
       </div>
@@ -16,8 +16,8 @@
       <router-view />
     </main>
 
-    <footer class="bg-gray-100 border-t border-gray-200 mt-10">
-      <div class="container mx-auto px-4 py-6 text-center text-gray-600">
+    <footer class="bg-gray-800 border-t border-gray-900 mt-10">
+      <div class="container mx-auto px-4 py-6 text-center text-gray-400">
         <p>Todo App &copy; {{ new Date().getFullYear() }} - Desenvolvido com Vue, Flask e Docker</p>
       </div>
     </footer>

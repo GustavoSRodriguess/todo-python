@@ -1,27 +1,27 @@
 <template>
-  <div class="todo-container">
+  <div class="todo-container text-yellow-500">
     <!-- Formulário para adicionar tarefas -->
-    <div class="card mb-6">
+    <div class="card mb-6 bg-gray-800 drop-shadow-2xl border border-gray-600">
       <h2 class="text-xl font-bold mb-4">Nova Tarefa</h2>
       <form @submit.prevent="addTodo">
         <div class="mb-4">
-          <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Título</label>
+          <label for="title" class="block text-sm font-medium text-yellow-500 mb-1">Título</label>
           <input 
             type="text" 
             id="title" 
             v-model="newTodo.title" 
-            class="input-field"
+            class="input-field border border-gray-500 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500"
             placeholder="O que você precisa fazer?"
             required
           >
         </div>
         
         <div class="mb-4">
-          <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
+          <label for="description" class="block text-sm font-medium text-yellow-500 mb-1">Descrição</label>
           <textarea 
             id="description" 
             v-model="newTodo.description" 
-            class="input-field"
+            class="input-field border border-gray-500"
             placeholder="Detalhes da tarefa (opcional)"
             rows="3"
           ></textarea>
@@ -29,8 +29,8 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
-            <label for="priority" class="block text-sm font-medium text-gray-700 mb-1">Prioridade</label>
-            <select id="priority" v-model="newTodo.priority" class="input-field">
+            <label for="priority" class="block text-sm font-medium text-yellow-500 mb-1">Prioridade</label>
+            <select id="priority" v-model="newTodo.priority" class="input-field border border-gray-500">
               <option value="1">Baixa</option>
               <option value="2">Média</option>
               <option value="3">Alta</option>
@@ -38,18 +38,18 @@
           </div>
           
           <div>
-            <label for="due_date" class="block text-sm font-medium text-gray-700 mb-1">Data Limite</label>
+            <label for="due_date" class="block text-sm font-medium text-yellow-500 mb-1">Data Limite</label>
             <input 
               type="date" 
               id="due_date" 
               v-model="newTodo.due_date" 
-              class="input-field"
+              class="input-field border border-gray-500 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500"
             >
           </div>
         </div>
         
         <div class="flex justify-end">
-          <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+          <button type="submit" class="btn btn-secondary">Adicionar Tarefa</button>
         </div>
       </form>
     </div>
@@ -62,21 +62,21 @@
         <button 
           @click="filter = 'all'" 
           class="px-3 py-1 rounded-md"
-          :class="filter === 'all' ? 'bg-primary text-white' : 'bg-gray-200'"
+          :class="filter === 'all' ? 'bg-yellow-500 text-white' : ''"
         >
           Todas
         </button>
         <button 
           @click="filter = 'active'" 
           class="px-3 py-1 rounded-md"
-          :class="filter === 'active' ? 'bg-primary text-white' : 'bg-gray-200'"
+          :class="filter === 'active' ? 'bg-yellow-500 text-white' : ''"
         >
           Pendentes
         </button>
         <button 
           @click="filter = 'completed'" 
           class="px-3 py-1 rounded-md"
-          :class="filter === 'completed' ? 'bg-primary text-white' : 'bg-gray-200'"
+          :class="filter === 'completed' ? 'bg-yellow-500 text-white' : ''"
         >
           Concluídas
         </button>
@@ -88,8 +88,8 @@
       <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
     </div>
     
-    <div v-else-if="filteredTodos.length === 0" class="card my-4 text-center py-8">
-      <p class="text-gray-500">Nenhuma tarefa encontrada</p>
+    <div v-else-if="filteredTodos.length === 0" class="card my-4 text-center py-8 bg-gray-600">
+      <p class="text-gray-800">Nenhuma tarefa encontrada</p>
     </div>
     
     <div v-else class="space-y-4">
@@ -142,7 +142,7 @@
             
             <p 
               v-if="todo.description" 
-              class="text-gray-700 mt-1"
+              class="text-yellow-500 mt-1"
               :class="{'text-gray-400': todo.completed}"
             >
               {{ todo.description }}
@@ -181,7 +181,7 @@
         
         <form @submit.prevent="updateTodo">
           <div class="mb-4">
-            <label for="edit-title" class="block text-sm font-medium text-gray-700 mb-1">Título</label>
+            <label for="edit-title" class="block text-sm font-medium text-yellow-500 mb-1">Título</label>
             <input 
               type="text" 
               id="edit-title" 
@@ -192,7 +192,7 @@
           </div>
           
           <div class="mb-4">
-            <label for="edit-description" class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
+            <label for="edit-description" class="block text-sm font-medium text-yellow-500 mb-1">Descrição</label>
             <textarea 
               id="edit-description" 
               v-model="editingTodo.description" 
@@ -203,7 +203,7 @@
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label for="edit-priority" class="block text-sm font-medium text-gray-700 mb-1">Prioridade</label>
+              <label for="edit-priority" class="block text-sm font-medium text-yellow-500 mb-1">Prioridade</label>
               <select id="edit-priority" v-model="editingTodo.priority" class="input-field">
                 <option value="1">Baixa</option>
                 <option value="2">Média</option>
@@ -212,7 +212,7 @@
             </div>
             
             <div>
-              <label for="edit-due_date" class="block text-sm font-medium text-gray-700 mb-1">Data Limite</label>
+              <label for="edit-due_date" class="block text-sm font-medium text-yellow-500 mb-1">Data Limite</label>
               <input 
                 type="date" 
                 id="edit-due_date" 
